@@ -4,4 +4,5 @@ kind: Namespace
 metadata:
   labels:
     name: istio-system
+    istio-injection: enabled
   name: istio-system

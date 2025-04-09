@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kiali
+  namespace: kiali-operator
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kiali-operator
+      version: "2.8.*"  # Specify the version you want to use
+      sourceRef:
+        kind: HelmRepository
+        name: kiali
+  values:
+    cr.create: true
+    cr.namespace: istio-system
+    cr.spec.auth.strategy: "anonymous"

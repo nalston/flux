@@ -27,3 +27,18 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: istio
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: istio-cni
+  namespace: istio-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: cni
+      version: "1.25.*"  # Specify the version you want to use
+      sourceRef:
+        kind: HelmRepository
+        name: istio

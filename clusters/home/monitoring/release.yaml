@@ -8,11 +8,10 @@ spec:
   chart:
     spec:
       chart: loki
-      version: "6.29.0"  # Specify the version you want to use
+      version: "6.*"  # Specify the version you want to use
       sourceRef:
         kind: HelmRepository
         name: grafana
-        namespace: monitoring
   values:
     loki:
     auth_enabled: false

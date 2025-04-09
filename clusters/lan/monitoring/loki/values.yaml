@@ -1,0 +1,40 @@
+# This will be converted to a ConfigMap by kustomize
+loki:
+  auth_enabled: false
+  storage:
+    type: filesystem
+    filesystem:
+      chunks_directory: /data/loki/chunks
+      rules_directory: /data/loki/rules
+  storage_config:
+    boltdb_shipper:
+      active_index_directory: /data/loki/index
+      cache_location: /data/loki/index_cache
+      shared_store: filesystem
+      cache_ttl: 24h
+  compactor:
+    working_directory: /data/loki/compactor
+  limits_config:
+    retention_period: 14d
+  ruler:
+    storage:
+      type: local
+      local:
+        directory: /data/loki/rules
+  ingester:
+    chunk_idle_period: 1h
+    chunk_retain_period: 30s
+    lifecycler:
+      ring:
+        kvstore:
+          store: inmemory
+  schema_config:
+    configs:
+      - from: 2020-10-24
+        store: boltdb-shipper
+        object_store: filesystem
+        schema: v11
+        index:
+          prefix: index_
+          period: 24h
+

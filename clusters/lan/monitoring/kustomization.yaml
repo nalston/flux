@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: "./clusters/your-cluster/monitoring/loki"
+  path: "./clusters/lan/monitoring/loki"
   prune: true
   sourceRef:
     kind: GitRepository

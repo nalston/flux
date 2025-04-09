@@ -21,6 +21,12 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 20Gi
+    backend:
+      replicas: 0
+    read:
+      replicas: 0
+    write:
+      replicas: 0
     loki:
       auth_enabled: false
       storage:

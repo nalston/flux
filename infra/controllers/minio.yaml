@@ -29,5 +29,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio
-        namespace: minio
+        namespace: minio-system
       interval: 12h

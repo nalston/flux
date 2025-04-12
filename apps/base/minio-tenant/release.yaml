@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio-tenant
+  namespace: minio-system
+spec:
+  interval: 60m
+  chart:
+    spec:
+      chart: tenant
+      version: "7.0.*"  # Specify the version you want to use
+      sourceRef:
+        kind: HelmRepository
+        name: minio
+  install:
+    remediation:
+      retries: 3

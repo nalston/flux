@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    istio-injection: disabled
+  name: minio-system
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: minio
+  namespace: minio-system
+spec:
+  interval: 12h
+  url: https://operator.min.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio-operator
+  namespace: minio-system
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: operator
+      version: "7.0.*"  # Specify the version you want to use
+      sourceRef:
+        kind: HelmRepository
+        name: minio
+        namespace: minio
+      interval: 12h

@@ -1,3 +1,0 @@
-# Flux
-
-This repository contains infrastructure configuration for our cloud environment. It uses Terraform for Infrastructure as Code (IaC) to define and provision our infrastructure resources, and Flux for GitOps to automate the deployment and management of our applications. By storing both our infrastructure definitions and deployment configurations in this repository, we ensure consistent, version-controlled, and automated management of our entire environment. Flux continuously monitors this repository and automatically applies any changes to our Kubernetes clusters, allowing us to manage our infrastructure and deployments through simple git operations.

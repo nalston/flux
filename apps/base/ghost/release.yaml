@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ghost
+  namespace: monitoring
+spec:
+  releaseName: ghost
+  interval: 1h
+  chart:
+    spec:
+      chart: ghost
+      version: "22.2.*"  # Specify the version you want to use
+      sourceRef:
+        kind: HelmRepository
+        name: ghost
+        namespace: flux-system

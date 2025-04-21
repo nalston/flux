@@ -4,13 +4,9 @@ metadata:
   name: ghost
   namespace: ghost
 spec:
-  releaseName: ghost
   interval: 1h
-  chart:
-    spec:
-      chart: ghost
-      version: "22.2.*"  # Specify the version you want to use
-      sourceRef:
-        kind: HelmRepository
-        name: ghost
-        namespace: ghost
+  targetNamespace: ghost
+  chartRef:
+    kind: OCIRepository
+    name: ghost-repo
+    namespace: flux-system

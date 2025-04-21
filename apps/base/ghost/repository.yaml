@@ -1,9 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+kind: OCIRepository
 metadata:
-  name: ghost
-  namespace: ghost
+  name: ghost-repo
+  namespace: flux-system
 spec:
-  type: "oci"
   interval: 1h
   url: oci://registry-1.docker.io/bitnamicharts
+  ref:
+    tag: latest

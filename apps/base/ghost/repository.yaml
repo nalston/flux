@@ -4,7 +4,7 @@ metadata:
   name: ghost-repo
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 5m0s
   url: oci://registry-1.docker.io/bitnamicharts/ghost
   ref:
     tag: latest

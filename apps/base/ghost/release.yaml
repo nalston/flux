@@ -1,15 +1,11 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ghost
   namespace: ghost
 spec:
   interval: 1h
-  targetNamespace: ghost
-  chart:
-    spec:
-      chart: ./
-      sourceRef:
-        kind: OCIRepository
-        name: ghost-repo
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: ghost-repo
+    namespace: flux-system

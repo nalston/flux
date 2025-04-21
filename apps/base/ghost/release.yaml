@@ -6,7 +6,10 @@ metadata:
 spec:
   interval: 1h
   targetNamespace: ghost
-  chartRef:
-    kind: OCIRepository
-    name: ghost-repo
-    namespace: flux-system
+  chart:
+    spec:
+      chart: ./
+      sourceRef:
+        kind: OCIRepository
+        name: ghost-repo
+        namespace: flux-system

@@ -2,7 +2,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ../base/minio-tenant
+#- ../base/minio-tenant
 - ../base/ghost
 #- ../base/loki
 #- ../base/grafana
